@@ -348,21 +348,20 @@ newaliases
 service postfix restart
 
 
-sed -r \
--e 's|^//Unattended-Upgrade::MinimalSteps "true";$|Unattended-Upgrade::MinimalSteps "true";|' \
--e 's|^//Unattended-Upgrade::Mail "root";$|Unattended-Upgrade::Mail "root";|' \
--e 's|^//Unattended-Upgrade::Automatic-Reboot "false";$|Unattended-Upgrade::Automatic-Reboot "true";|' \
--e 's|^//Unattended-Upgrade::Remove-Unused-Dependencies "false";|Unattended-Upgrade::Remove-Unused-Dependencies "true";|' \
--e 's|^//Unattended-Upgrade::Automatic-Reboot-Time "02:00";$|Unattended-Upgrade::Automatic-Reboot-Time "03:00";|' \
--i /etc/apt/apt.conf.d/50unattended-upgrades
+#sed -r \
+#-e 's|^//Unattended-Upgrade::MinimalSteps "true";$|Unattended-Upgrade::MinimalSteps "true";|' \
+#-e 's|^//Unattended-Upgrade::Mail "root";$|Unattended-Upgrade::Mail "root";|' \
+#-e 's|^//Unattended-Upgrade::Automatic-Reboot "false";$|Unattended-Upgrade::Automatic-Reboot "true";|' \
+#-e 's|^//Unattended-Upgrade::Remove-Unused-Dependencies "false";|Unattended-Upgrade::Remove-Unused-Dependencies "true";|' \
+#-e 's|^//Unattended-Upgrade::Automatic-Reboot-Time "02:00";$|Unattended-Upgrade::Automatic-Reboot-Time "03:00";|' \
+#-i /etc/apt/apt.conf.d/50unattended-upgrades
 
-echo 'APT::Periodic::Update-Package-Lists "1";
-APT::Periodic::Download-Upgradeable-Packages "1";
-APT::Periodic::AutocleanInterval "7";
-APT::Periodic::Unattended-Upgrade "1";
-' > /etc/apt/apt.conf.d/10periodic
-
-service unattended-upgrades restart
+#echo 'APT::Periodic::Update-Package-Lists "1";
+#APT::Periodic::Download-Upgradeable-Packages "1";
+#APT::Periodic::AutocleanInterval "7";
+#APT::Periodic::Unattended-Upgrade "1";
+#' > /etc/apt/apt.conf.d/10periodic
+#service unattended-upgrades restart
 
 echo
 echo "--- Creating configuration files ---"
